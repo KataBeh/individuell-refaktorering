@@ -40,6 +40,30 @@ def main() -> None:
         processed_orders
     )
 
+    save_report(
+        overview,
+        config.output_dir,
+        "overview.csv"
+    )
+
+    save_report(
+        sales_by_category,
+        config.output_dir,
+        "sales_by_category.csv"
+    )
+
+    save_report(
+        sales_by_region,
+        config.output_dir,
+        "sales_by_region.csv"
+    )
+
+    save_report(
+        returns_by_category,
+        config.output_dir,
+        "returns_by_category.csv"
+    )
+
 
 if __name__ == "__main__":
     main()
