@@ -3,7 +3,7 @@
 from order_report.logging_config import configure_logging
 from order_report.config import ReportConfig
 from order_report.loading import load_orders
-from order_report.validation import validate_columns, validate_not_empty
+from order_report.validation import validate_columns, validate_not_empty, validate_numeric_values
 from order_report.processing import prepare_orders
 from order_report.reporting import (
     create_overview,
@@ -23,6 +23,8 @@ def main() -> None:
     validate_columns(orders)
 
     processed_orders = prepare_orders(orders)
+
+    validate_numeric_values(processed_orders)
 
     overview = create_overview(processed_orders)
 
