@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from order_report.validation import validate_columns, validate_not_empty
+from order_report.validation import validate_columns, validate_not_empty, validate_numeric_values
 
 
 def test_validate_columns_with_all_required_columns():
@@ -55,3 +55,15 @@ def test_validate_not_empty_with_empty_dataframe():
 
     with pytest.raises(ValueError):
         validate_not_empty(orders)
+
+
+def test_validate_numeric_values_with_negative_quantity():
+    orders = pd.DataFrame(
+        {
+            "quantity": [-1],
+            "unit_price": [100],
+        }
+    )
+
+    with pytest.raises(ValueError, match="quantity"):
+        validate_numeric_values(orders)
