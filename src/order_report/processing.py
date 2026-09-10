@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def prepare_orders(orders: pd.DataFrame) -> pd.DataFrame:
-    processed_orders = orders.copy()
+    processed_orders = orders.copy()                        # med copy ändrar jag ej orginalet
 
     processed_orders["region"] = (
         processed_orders["region"]

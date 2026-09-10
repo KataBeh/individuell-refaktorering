@@ -1,3 +1,5 @@
+# när processing gjorde självaste datan redo så ska jag i reporting nu sammanställa den färdiga datan till rapporter
+
 import pandas as pd
 import logging
 from pathlib import Path
@@ -57,7 +59,7 @@ def create_sales_summary(
 
     summary["total_sales"] = summary["total_sales"].round(2)
 
-    summary["return_rate"] = (
+    summary["return_rate"] = (                                      # räknar returandel
         summary["returns"]
         / summary["order_count"]
     ).round(3)
@@ -66,9 +68,9 @@ def create_sales_summary(
         summary
         .sort_values(
             "total_sales",
-            ascending=False
+            ascending=False                                         # sorterar högsta försäljning först
         )
-        .reset_index(drop=True)
+        .reset_index(drop=True)                                     # här återställer jag index
     )
 
     return summary
@@ -82,7 +84,7 @@ def create_returns_by_category(
 ) -> pd.DataFrame:
 
     returns_by_category = (
-        processed_orders.groupby(
+        processed_orders.groupby(                                   # delar orderdata efter produktkategori
             "product_category",
             as_index=False
         )
@@ -103,7 +105,7 @@ def create_returns_by_category(
             "return_rate",
             ascending=False
         )
-        .reset_index(drop=True)
+        .reset_index(drop=True)                                      # produktkategorin med högst returgrad hamnar högst upp
     )
 
     return returns_by_category

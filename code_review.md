@@ -24,7 +24,7 @@ Scriptet går att köra och skapar en orderrapporter med sammanställningar öve
 
 ### Fynd 3 - Valideringen ger ett generellt fel
 
-**Observation:** Valideringen kastar `Exception` med meddelandet `Något gick fel` och Om någon obligatorisk kolumn saknas kastas `Exception` med `Fel data`. 
+**Observation:** Valideringen kastar `Exception` med meddelandet `Något gick fel` och om någon obligatorisk kolumn saknas kastas `Exception` med `Fel data`. 
 
 **Konsekvens:** Felet är svårt att felsöka och svårt att kontrollera specifikt i ett automatiskt test. Det framgår inte vilka kolumner som saknas.
 

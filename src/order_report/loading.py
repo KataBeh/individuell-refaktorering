@@ -6,7 +6,7 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 
 
-def load_orders(file_path: str) -> pd.DataFrame:
+def load_orders(file_path: Path) -> pd.DataFrame:                # gör som läraren: en tydlig funktion med ett enda ansvar
     logger.info("Läser in orderdata från %s", file_path)
     if not file_path.exists():
         raise FileNotFoundError(
@@ -15,6 +15,6 @@ def load_orders(file_path: str) -> pd.DataFrame:
     
     orders = pd.read_csv(file_path)
 
-    logger.info("Läste in %s rader", len(orders))
+    logger.info("Läste in %s rader", len(orders))               # jag byter print() mot logging
 
     return orders

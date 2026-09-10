@@ -69,3 +69,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# min main styr ordning på arbetet:  konfigurerar logging > skapar config > läser in data > validerar > bearbetar > skapar rapporter > sparar rapporter

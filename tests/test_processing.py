@@ -70,3 +70,5 @@ def test_prepare_orders_converts_returned_to_boolean():
     processed_orders = prepare_orders(orders)
 
     assert bool(processed_orders.loc[0, "returned"]) is True
+
+    # min tankesätt prepare_orders = funktionen, processed_orders = resultatet från funktionen

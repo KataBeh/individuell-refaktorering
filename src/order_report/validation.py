@@ -15,16 +15,18 @@ REQUIRED_COLUMNS = {
 
 
 def validate_columns(orders: pd.DataFrame) -> None:
-    missing_columns = REQUIRED_COLUMNS - set(orders.columns)
+    missing_columns = REQUIRED_COLUMNS - set(orders.columns)                # den här jämför för mig vilka kolumner jag kräver med vilka kolumner som faktiskt finns i Dataframe
 
     if missing_columns:
         raise ValueError(
             f"Saknade obligatoriska kolumner: {sorted(missing_columns)}"
         )
 
-def validate_not_empty(orders: pd.DataFrame) -> None:
+def validate_not_empty(orders: pd.DataFrame) -> None:                       # kontoll för en tom data
     if orders.empty:
         raise ValueError("Orderdata är tom")
+
+
 
 # lägger till en extra validering för orimliga värden såsom negativ quantity och unit_price:
 def validate_numeric_values(orders: pd.DataFrame) -> None:

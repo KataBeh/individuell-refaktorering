@@ -36,10 +36,12 @@ def test_validate_columns_missing_column():
         ]
     )
 
-    with pytest.raises(ValueError):
-        validate_columns(orders)                # här förväntar jag mig att koden ska kasta ett ValueError
+    with pytest.raises(ValueError, match="discount"):
+        validate_columns(orders)                         # här förväntar jag mig att koden ska kasta ett ValueError
 
 
+
+# små tester för felhantering:
 def test_validate_not_empty_with_data():
     orders = pd.DataFrame(
         {

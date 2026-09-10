@@ -40,7 +40,7 @@ def test_create_sales_summary_by_category():
 
     electronics = summary[
         summary["product_category"] == "Electronics"
-    ].iloc[0]
+    ].iloc[0]                       # hitta denna produktkategori och välj den raden
 
     assert electronics["order_count"] == 2
     assert electronics["total_sales"] == 300.0
